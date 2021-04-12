@@ -79,17 +79,19 @@ public class movement : MonoBehaviour
         //------------position of camera = position player. Note: cameraController isn't child class of player1------------------------------------------------
         Vector3 copyCameraPosition = new Vector3(transform.position.x, transform.position.y + 3.5f, transform.position.z); 
         cameraController.position = copyCameraPosition;
+        
+        if(Input.GetKeyDown(KeyCode.C)) {
+            if (first_per)
+            {
+                first_per = false;
+            }
+            else
+            {
+                first_per = true;
+            }
+        }
         characher_obj.SetActive(!first_per);
-        if(Input.GetKeyDown(KeyCode.Alpha1)) {
-            first_per = true;
-            characher_obj.SetActive(false);
-        }
-        else if(Input.GetKeyDown(KeyCode.Alpha3)) {
-            first_per = false;
-            characher_obj.SetActive(true);
-        }
-
-        if(first_per){
+        if (first_per){
 
         Vector3 copyCamera = new Vector3(transform.position.x, transform.position.y + 2.5f, transform.position.z); 
         camera.position = copyCamera;
